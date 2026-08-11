@@ -18,15 +18,15 @@ const translations = {
     "nav.projects": "Projects",
     "nav.contact": "Contact",
     "hero.badge": "Available for work",
-    "hero.greeting": "Frontend Developer",
+    "hero.greeting": "FRONTEND DEVELOPER",
     "hero.description":
       "I build modern, scalable, and user-friendly applications. Passionate about clean code and great design.",
-    "about.title": "About Me",
+    "about.title": "ABOUT ME",
     "about.desc":
       "I am a passionate developer with experience in building web applications. I love learning new technologies and solving complex problems. My focus is on creating intuitive and performant user experiences.",
     "about.download_cv": "Download CV",
     "experience.title": "MY WORK EXPERIENCE",
-    "experience.1.num": "04",
+    "experience.1.num": "4",
     "experience.1.label1": "+",
     "experience.1.label2": "YEARS\nOF EXPERIENCE",
     "experience.2.num": "16",
@@ -69,7 +69,7 @@ const translations = {
     "cta.desc":
       "WHETHER YOU NEED INTUITIVE UI/UX DESIGN, ROBUST DEVELOPMENT, OR A SEAMLESS BLEND OF BOTH, I'M HERE TO HELP",
     "cta.button": "HIRE ME",
-    "services.title": "Services I Am Providing",
+    "services.title": "SERVICES I AM PROVIDING",
     "services.desc":
       "Providing end-to-end web development and interface design. Committed to delivering pixel-perfect, high-performance applications tailored to your business goals.",
     "services.button": "GET IN TOUCH",

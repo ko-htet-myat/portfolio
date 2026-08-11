@@ -27,7 +27,7 @@ export function Services() {
           transition={{ duration: 0.5 }}
           className="flex flex-col"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 text-zinc-900 dark:text-zinc-50 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter mb-6 text-zinc-900 dark:text-zinc-50 leading-tight">
             {t("services.title")}
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed mb-10 max-w-sm">

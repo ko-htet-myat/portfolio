@@ -53,7 +53,7 @@ export function BentoGrid() {
   return (
     <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
       <div className="mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tighter mb-4">
           {t("projects.title")}
         </h2>
         <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl">

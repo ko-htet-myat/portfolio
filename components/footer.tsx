@@ -51,8 +51,8 @@ export function Footer() {
       className="bg-zinc-950 text-zinc-400 py-20 px-6 border-t border-zinc-800"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+          <div className="col-span-2">
             <h3 className="text-3xl md:text-4xl font-bold text-zinc-50 tracking-tighter mb-6 uppercase">
               Let&apos;s build something <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-violet-400 via-pink-400 to-orange-400">

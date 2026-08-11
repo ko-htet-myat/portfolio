@@ -46,7 +46,7 @@ export function WorkExperience() {
           {t("experience.title")}
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.id}
@@ -56,7 +56,7 @@ export function WorkExperience() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex items-center justify-center md:justify-start gap-4"
             >
-              <span className="text-blue-500 dark:text-blue-400 text-6xl md:text-7xl lg:text-[5rem] 2xl:text-8xl font-bold tracking-tighter leading-none">
+              <span className="text-blue-500 dark:text-blue-400 text-5xl md:text-7xl lg:text-[5rem] 2xl:text-8xl font-bold tracking-tighter leading-none">
                 {stat.num}
               </span>
               <div className="flex flex-col text-zinc-600 dark:text-zinc-400 font-bold leading-tight uppercase text-xs md:text-sm">

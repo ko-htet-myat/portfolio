@@ -20,7 +20,7 @@ export function About() {
           transition={{ duration: 0.5 }}
           className="flex-1"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter mb-6">
             {t("about.title")}
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-8">

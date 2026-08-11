@@ -39,7 +39,7 @@ export function WorkingProcess() {
   return (
     <section id="process" className="py-24 px-6 max-w-5xl mx-auto">
       <div className="mb-20 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase">
           {t("process.title")}
         </h2>
       </div>
