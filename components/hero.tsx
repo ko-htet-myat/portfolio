@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useLanguage } from "./language-provider";
 import { ArrowRight } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import AiChatInput from "./ai-chat-prompt";
 
 export function Hero() {
   const { t } = useLanguage();
@@ -83,6 +84,9 @@ export function Hero() {
             {t("nav.contact")}
           </a>
         </motion.div>
+      </div>
+      <div className=" w-full lg:hidden pt-12">
+        <AiChatInput />
       </div>
     </section>
   );

@@ -9,12 +9,16 @@ import { BentoGrid } from "@/components/bento-grid";
 // import { BlogSection } from "@/components/blog-section";
 import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer";
+import AiChatInput from "@/components/ai-chat-prompt";
 
 export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden w-full">
       <Navbar />
       <Hero />
+      <div className=" hidden lg:block">
+        <AiChatInput />
+      </div>
       <About />
       <WorkExperience />
       <Services />
