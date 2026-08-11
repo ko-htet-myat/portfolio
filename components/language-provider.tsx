@@ -18,7 +18,7 @@ const translations = {
     "nav.projects": "Projects",
     "nav.contact": "Contact",
     "hero.badge": "Available for work",
-    "hero.greeting": "FRONTEND DEVELOPER",
+    "hero.greeting": "Frontend Developer",
     "hero.description":
       "I build modern, scalable, and user-friendly applications. Passionate about clean code and great design.",
     "about.title": "ABOUT ME",
