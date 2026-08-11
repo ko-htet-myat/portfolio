@@ -3,7 +3,8 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowUpRight, Github, ExternalLink } from "lucide-react";
+import { ArrowUpRight, Github, ExternalLink } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { useLanguage } from "@/components/language-provider";
 import { useParams } from "next/navigation";
 import { Footer } from "@/components/footer";
@@ -156,13 +157,15 @@ export default function ProjectDetail() {
                   href="#"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 font-medium hover:scale-105 transition-transform"
                 >
-                  Live Site <ExternalLink className="w-4 h-4" />
+                  Live Site{" "}
+                  <HugeiconsIcon icon={ExternalLink} className="w-4 h-4" />
                 </a>
                 <a
                   href="#"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-zinc-200 dark:border-zinc-800 font-medium hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
                 >
-                  Source Code <Github className="w-4 h-4" />
+                  Source Code{" "}
+                  <HugeiconsIcon icon={Github} className="w-4 h-4" />
                 </a>
               </div>
             </div>
@@ -211,7 +214,10 @@ export default function ProjectDetail() {
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase text-zinc-900 dark:text-zinc-50 group-hover:text-orange-500 transition-colors flex items-center justify-center gap-4">
               View Next{" "}
-              <ArrowUpRight className="w-10 h-10 md:w-14 md:h-14 group-hover:translate-x-3 group-hover:-translate-y-3 transition-transform duration-500" />
+              <HugeiconsIcon
+                icon={ArrowUpRight}
+                className="w-10 h-10 md:w-14 md:h-14 group-hover:translate-x-3 group-hover:-translate-y-3 transition-transform duration-500"
+              />
             </h2>
           </Link>
         </motion.div>
