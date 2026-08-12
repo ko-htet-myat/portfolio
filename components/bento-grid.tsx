@@ -14,21 +14,21 @@ export function BentoGrid() {
   const projects = [
     {
       id: 1,
-      title: t("project.1.title"),
-      desc: t("project.1.desc"),
+      title: t("project.2.title"),
+      desc: t("project.2.desc"),
       colSpan: "md:col-span-2",
       rowSpan: "md:row-span-2",
       image: Photo,
-      tags: ["Next.js", "Stripe", "Tailwind"],
+      tags: ["React", "Tailwind", "Redux Toolkit"],
     },
     {
       id: 2,
-      title: t("project.2.title"),
-      desc: t("project.2.desc"),
+      title: t("project.1.title"),
+      desc: t("project.1.desc"),
       colSpan: "md:col-span-1",
       rowSpan: "md:row-span-1",
       image: Photo,
-      tags: ["React", "Python", "ML"],
+      tags: ["React", "Tailwind", "Odoo"],
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ export function BentoGrid() {
       colSpan: "md:col-span-1",
       rowSpan: "md:row-span-1",
       image: Photo,
-      tags: ["Socket.io", "Node.js"],
+      tags: ["Next.js", "Tailwind", "Node.js"],
     },
     {
       id: 4,
@@ -46,7 +46,7 @@ export function BentoGrid() {
       colSpan: "md:col-span-2",
       rowSpan: "md:row-span-1",
       image: Photo,
-      tags: ["Framer Motion", "UI/UX"],
+      tags: ["Pug Js", "Bootstrap", "WordPress"],
     },
   ];
 
@@ -72,7 +72,8 @@ export function BentoGrid() {
             className={`group relative overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 ${project.colSpan} ${project.rowSpan}`}
           >
             <Link
-              href={`/projects/${project.id}`}
+              // href={`/projects/${project.id}`}
+              href={"/"}
               className="absolute inset-0 z-20"
               aria-label={`View ${project.title}`}
             />
@@ -115,7 +116,7 @@ export function BentoGrid() {
                     <HugeiconsIcon icon={Github} />
                   </a>
                   <a
-                    href="#"
+                    href="/"
                     className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-colors"
                   >
                     <HugeiconsIcon icon={ExternalLink} />
