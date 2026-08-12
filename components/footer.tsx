@@ -77,7 +77,7 @@ export function Footer() {
               partnership opportunities.
             </p>
             <a
-              href="mailto:htetmyataung16000@gmail.com"
+              href={`mailto:${email}`}
               className="inline-flex items-center gap-2 text-zinc-50 font-medium hover:text-orange-400 transition-colors group"
             >
               {email}
@@ -130,7 +130,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-zinc-800/50 text-xs">
-          <p>&copy; {currentYear} Portfolio. All rights reserved.</p>
+          <p>&copy; {currentYear} Htet Myat Aung. All rights reserved.</p>
           <div className="flex items-center gap-1 mt-4 md:mt-0">
             <span>{t("footer.made")}</span>
             <span className="text-zinc-50 font-medium">{t("footer.by")}</span>
