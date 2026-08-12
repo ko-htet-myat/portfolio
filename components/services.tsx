@@ -15,6 +15,7 @@ export function Services() {
     { id: 2, title: t("services.2.title"), desc: t("services.2.desc") },
     { id: 3, title: t("services.3.title"), desc: t("services.3.desc") },
     { id: 4, title: t("services.4.title"), desc: t("services.4.desc") },
+    { id: 5, title: t("services.5.title"), desc: t("services.5.desc") },
   ];
 
   return (
