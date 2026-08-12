@@ -16,6 +16,7 @@ export function Footer() {
   const { t } = useLanguage();
 
   const currentYear = new Date().getFullYear();
+  const email = process.env.NEXT_PUBLIC_EMAIL || "#";
 
   const links = [
     { name: t("nav.home"), href: "#" },
@@ -25,8 +26,16 @@ export function Footer() {
   ];
 
   const socials = [
-    { name: "GitHub", icon: Github, href: "https://github.com/ko-htet-myat" },
-    { name: "LinkedIn", icon: Linkedin, href: "#" },
+    {
+      name: "GitHub",
+      icon: Github,
+      href: process.env.NEXT_PUBLIC_GITHUB_URL || "#",
+    },
+    {
+      name: "LinkedIn",
+      icon: Linkedin,
+      href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "#",
+    },
     {
       name: "Telegram",
       icon: Send,
@@ -42,7 +51,11 @@ export function Footer() {
       icon: Phone,
       href: `tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER || "+959770106619"}`,
     },
-    { name: "Email", icon: Mail, href: "mailto:htetmyataung16000@gmail.com" },
+    {
+      name: "Email",
+      icon: Mail,
+      href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || "htetmyataung232002@gmail.com"}`,
+    },
   ];
 
   return (
@@ -67,7 +80,7 @@ export function Footer() {
               href="mailto:htetmyataung16000@gmail.com"
               className="inline-flex items-center gap-2 text-zinc-50 font-medium hover:text-orange-400 transition-colors group"
             >
-              htetmyataung16000@gmail.com
+              {email}
               <HugeiconsIcon
                 icon={ArrowUpRight}
                 className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"

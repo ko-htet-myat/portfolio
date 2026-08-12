@@ -10,6 +10,7 @@ import { useParams } from "next/navigation";
 import { Footer } from "@/components/footer";
 import { ProjectNavbar } from "@/components/project-navbar";
 import { useRef } from "react";
+import Photo from "@/assets/skeleton.png";
 
 export default function ProjectDetail() {
   const params = useParams();
@@ -29,7 +30,7 @@ export default function ProjectDetail() {
   const project = {
     title: t(`project.${id}.title`) || "Project Title",
     desc: t(`project.${id}.desc`) || "Project description goes here.",
-    image: `https://picsum.photos/1920/1080?random=${id}`,
+    image: Photo,
     tags: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
     client: "Acme Corporation",
     role: "Lead Designer & Developer",
@@ -39,10 +40,7 @@ export default function ProjectDetail() {
       "The client needed a modern, high-performance web application that could scale to millions of users while maintaining a premium, editorial feel. The existing platform was slow, outdated, and suffering from high bounce rates.",
     solution:
       "We implemented a Next.js App Router architecture with React Server Components for optimal performance. The UI was crafted using Tailwind CSS and Framer Motion for fluid, physics-based animations, resulting in a 40% increase in user retention.",
-    gallery: [
-      `https://picsum.photos/800/800?random=${id}1`,
-      `https://picsum.photos/800/800?random=${id}2`,
-    ],
+    gallery: [Photo, Photo],
   };
 
   return (
@@ -63,7 +61,7 @@ export default function ProjectDetail() {
             priority
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-50 via-zinc-50/80 to-transparent dark:from-zinc-950 dark:via-zinc-950/80 dark:to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-zinc-50 via-zinc-50/80 to-transparent dark:from-zinc-950 dark:via-zinc-950/80 dark:to-transparent" />
         </motion.div>
 
         <div className="relative z-10 max-w-7xl mx-auto w-full">
