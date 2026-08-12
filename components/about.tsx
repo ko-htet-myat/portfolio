@@ -28,7 +28,7 @@ export function About() {
           </p>
           <motion.a
             href="/cv.pdf"
-            download
+            download="htetmyataung_senior_frontend_developer_cv.pdf"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="group relative inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 rounded-full font-medium transition-all overflow-hidden"
