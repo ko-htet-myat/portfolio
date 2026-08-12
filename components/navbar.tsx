@@ -59,7 +59,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/#home" className="text-lg font-bold tracking-tighter mr-4">
           <span className="bg-clip-text text-transparent bg-linear-to-r from-violet-500 to-orange-500">
-            P.
+            HM.
           </span>
         </Link>
 

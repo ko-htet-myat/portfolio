@@ -8,8 +8,36 @@ import { SmoothScrolling } from "@/components/smooth-scrolling";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Htet Myat Aung",
+  jobTitle: "Senior Frontend Developer",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://portfolio-hma.vercel.app",
+  image: "../assets/og.png",
+  sameAs: [
+    process.env.NEXT_PUBLIC_GITHUB_URL ||
+      "https://github.com/your-github-username",
+    process.env.NEXT_PUBLIC_LINKEDIN_URL ||
+      "https://linkedin.com/in/your-linkedin-username",
+    process.env.NEXT_PUBLIC_TWITTER_URL ||
+      "https://twitter.com/your-twitter-handle",
+  ],
+  knowsAbout: [
+    "Frontend Development",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "JavaScript",
+    "SaaS Applications",
+    "Web Performance",
+  ],
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-hma.vercel.app"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL || "https://portfolio-hma.vercel.app",
+  ),
   title: {
     default: "Htet Myat Aung | Senior Frontend Developer",
     template: "%s | Htet Myat Aung",
@@ -26,13 +54,20 @@ export const metadata: Metadata = {
     "Full-stack Developer",
   ],
   authors: [
-    { name: "Htet Myat Aung", url: "https://portfolio-hma.vercel.app" },
+    {
+      name: "Htet Myat Aung",
+      url:
+        process.env.NEXT_PUBLIC_APP_URL || "https://portfolio-hma.vercel.app",
+    },
   ],
   creator: "Htet Myat Aung",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://portfolio-hma.vercel.app",
+    url: process.env.NEXT_PUBLIC_APP_URL || "https://portfolio-hma.vercel.app",
     title: "Htet Myat Aung | Senior Frontend Developer",
     description:
       "Portfolio of Htet Myat Aung, specializing in building modern, scalable, and user-friendly web applications.",
@@ -91,6 +126,10 @@ export default function RootLayout({
             </SmoothScrolling>
           </LanguageProvider>
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   );

@@ -108,7 +108,7 @@ export function BentoGrid() {
                   </p>
                 </div>
 
-                <div className="flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0 relative z-30">
+                <div className=" hidden sm:flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0 relative z-30">
                   <a
                     href="#"
                     className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-colors"

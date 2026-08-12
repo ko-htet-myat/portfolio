@@ -1,18 +1,13 @@
-import { MetadataRoute } from 'next'
- 
+import { MetadataRoute } from "next";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://htetmyataung.com',
+      url:
+        process.env.NEXT_PUBLIC_APP_URL || "https://portfolio-hma.vercel.app",
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: "monthly",
       priority: 1,
     },
-    {
-      url: 'https://htetmyataung.com/ai-assistant',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-  ]
+  ];
 }
