@@ -73,18 +73,21 @@ const translations = {
     "services.desc":
       "Providing end-to-end web development and interface design. Committed to delivering pixel-perfect, high-performance applications tailored to your business goals.",
     "services.button": "GET IN TOUCH",
-    "services.1.title": "WEB DESIGN",
+    "services.1.title": "Responsive Design",
     "services.1.desc":
-      "Creating beautiful, responsive, and user-centric web interfaces that engage visitors and drive conversions.",
-    "services.2.title": "APP DESIGN",
+      "Flawless layouts that automatically adapt to any screen size—from mobile phones to desktop monitors—ensuring an optimal user experience everywhere.",
+    "services.2.title": "Clean Code",
     "services.2.desc":
-      "Designing intuitive and engaging mobile applications for iOS and Android platforms with a focus on user experience.",
-    "services.3.title": "DASHBOARD DESIGN",
+      "Well-structured, optimized, and maintainable code built for fast load speeds, security, and effortless future upgrades.",
+    "services.3.title": "SEO Optimization",
     "services.3.desc":
-      "Building complex data visualization dashboards that are easy to understand, navigate, and interact with.",
-    "services.4.title": "DESIGN STRATEGY",
+      "Implementing best practices for search engine optimization, ensuring your website ranks higher in search results and attracts more organic traffic.",
+    "services.4.title": "Maintenance",
     "services.4.desc":
-      "Developing comprehensive design systems and strategies to ensure brand consistency across all digital touchpoints.",
+      "Reliable ongoing support, security monitoring, and updates to keep your website fast, safe, and running smoothly long after launch.",
+    "services.5.title": "Agentic Coding",
+    "services.5.desc":
+      "Next-generation software development leveraging autonomous AI agents to generate, refactor, test, and debug code—dramatically accelerating build times while maintaining high code quality.",
     "skills.title": "My Skills",
     "skills.desc": "Here are some of the technologies I work with.",
   },
@@ -163,6 +166,9 @@ const translations = {
     "services.4.title": "ဒီဇိုင်း မဟာဗျူဟာ",
     "services.4.desc":
       "ဒစ်ဂျစ်တယ် ထိတွေ့မှုအားလုံးတွင် အမှတ်တံဆိပ် ညီညွတ်မှုရှိစေရန် ပြီးပြည့်စုံသော ဒီဇိုင်းစနစ်များနှင့် မဟာဗျူဟာများကို ဖော်ဆောင်ခြင်း။",
+    "services.5.title": "အက်ပ် ဖွံ့ဖြိုးတိုးတက်မှု",
+    "services.5.desc":
+      "အမြန်နှုန်းမြင့်မားပြီး အရည်အသွေးမြင့်မားသော အက်ပ်များကို ဖန်တီးရန် အဆင့်မြင့်နည်းပညာများနှင့် အကောင်းဆုံးလေ့ကျင့်မှုများကို အသုံးပြုခြင်း။",
     "skills.title": "ကျွန်ုပ်၏ ကျွမ်းကျင်မှုများ",
     "skills.desc": "ကျွန်ုပ်အသုံးပြုသော နည်းပညာအချို့ဖြစ်ပါသည်။",
   },
