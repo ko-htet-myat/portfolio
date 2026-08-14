@@ -36,6 +36,19 @@ export function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
+  const switchTheme = () => {
+    const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
+
+    if (!document.startViewTransition) {
+      setTheme(nextTheme);
+      return;
+    }
+
+    document.startViewTransition(() => {
+      setTheme(nextTheme);
+    });
+  };
+
   const navLinks = [
     { name: t("nav.home"), href: "/#home" },
     { name: t("nav.about"), href: "/#about" },
@@ -94,9 +107,7 @@ export function Navbar() {
 
           {mounted && (
             <button
-              onClick={() =>
-                setTheme(resolvedTheme === "dark" ? "light" : "dark")
-              }
+              onClick={switchTheme}
               className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-600 dark:text-zinc-400"
               aria-label="Toggle theme"
             >
