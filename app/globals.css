@@ -53,7 +53,7 @@ html.lenis {
 
 ::view-transition-new(root) {
   mask: url("https://media.tenor.com/VJlZzo7UdagAAAAi/deadpool-marvel.gif")
-    center / 0 no-repeat;
+    bottom center / 0 no-repeat;
   animation: gif-deadpool-reveal 1900ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
