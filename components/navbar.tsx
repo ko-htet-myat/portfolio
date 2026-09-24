@@ -7,6 +7,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { NavScrollBorder } from "./nav-scroll-border";
 
 export function Navbar() {
   const { setTheme, resolvedTheme } = useTheme();
@@ -63,12 +64,14 @@ export function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`pointer-events-auto relative min-w-full md:min-w-0 z-50 flex items-center justify-between gap-4 px-4 py-2 md:px-6 md:py-3 rounded-full border transition-all duration-500 ${
+        className={`pointer-events-auto relative min-w-full md:min-w-0 z-50 flex items-center justify-between gap-4 px-4 py-2 md:px-6 md:py-3 rounded-full transition-all duration-500 ${
           scrolled
-            ? "bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl border-zinc-200/50 dark:border-zinc-800/50 shadow-lg shadow-black/5"
-            : "bg-white/40 dark:bg-zinc-950/40 backdrop-blur-md border-transparent"
+            ? "bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl shadow-lg shadow-black/5"
+            : "bg-white/40 dark:bg-zinc-950/40 backdrop-blur-md"
         }`}
       >
+        {/* Scroll-triggered animated gradient border */}
+        <NavScrollBorder scrolled={scrolled} />
         {/* Logo */}
         <Link href="/#home" className="text-lg font-bold tracking-tighter mr-4">
           <span className="bg-clip-text text-transparent bg-linear-to-r from-violet-500 to-orange-500">
