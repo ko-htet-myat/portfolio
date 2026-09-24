@@ -191,7 +191,7 @@ export function About() {
                         <div className="pl-4">
                           <span className="text-blue-400">title</span>:{" "}
                           <span className="text-emerald-300">
-                            &quot;Frontend Developer & UI Architect&quot;
+                            &quot;Frontend Developer&quot;
                           </span>
                           ,
                         </div>
