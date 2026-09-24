@@ -21,7 +21,6 @@ const CODE_SNIPPET = `const developer = {
 export function About() {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<TabType>("story");
-  const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedCode, setCopiedCode] = useState(false);
 
   const handleCopyCode = async () => {
@@ -44,12 +43,8 @@ export function About() {
       id="about"
       className="relative py-28 px-6 max-w-7xl mx-auto overflow-hidden"
     >
-      {/* Decorative ambient background glows */}
-      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-emerald-500/10 dark:bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
-
       {/* Top Header Badge & Title */}
-      <div className="mb-14 md:mb-18">
+      <div className=" mb-10 md:mb-5">
         <motion.h2
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +67,7 @@ export function About() {
           className="lg:col-span-8 flex flex-col gap-6"
         >
           {/* Interactive Navigation Tabs */}
-          <div className="flex p-1.5 rounded-2xl bg-zinc-100 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 backdrop-blur-md self-start max-w-full overflow-x-auto">
+          <div className=" lg:ml-auto flex p-1.5 rounded-2xl bg-zinc-100 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 backdrop-blur-md self-start max-w-full overflow-x-auto">
             {tabs.map((tab) => {
               const isActive = activeTab === tab.id;
               return (
@@ -107,7 +102,7 @@ export function About() {
           </div>
 
           {/* Dynamic Tab Body with Smooth Transition */}
-          <div className="relative min-h-[360px]">
+          <div className="relative">
             <AnimatePresence mode="wait">
               {/* TAB 1: STORY */}
               {activeTab === "story" && (
