@@ -3,16 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useLanguage } from "./language-provider";
-import Image from "next/image";
-import Photo from "@/assets/image.jpg";
 import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  Download,
-  Copy,
-  Check,
-  Sparkles,
-  Terminal,
-} from "@hugeicons/core-free-icons";
+import { Copy, Check, Sparkles, Terminal } from "@hugeicons/core-free-icons";
 
 type TabType = "story" | "philosophy" | "highlights";
 
@@ -31,18 +23,6 @@ export function About() {
   const [activeTab, setActiveTab] = useState<TabType>("story");
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedCode, setCopiedCode] = useState(false);
-
-  const developerEmail = "htetmyataung232002@gmail.com";
-
-  const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(developerEmail);
-      setCopiedEmail(true);
-      setTimeout(() => setCopiedEmail(false), 2500);
-    } catch {
-      // fallback
-    }
-  };
 
   const handleCopyCode = async () => {
     try {
@@ -82,65 +62,7 @@ export function About() {
       </div>
 
       {/* Main Grid: Left Identity Card + Right Interactive Bento */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-        {/* Left Column: Visual Identity & Persona Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="lg:col-span-4 w-full flex flex-col gap-5 max-w-sm mx-auto lg:mx-0"
-        >
-          {/* Framed Image Card with Floating Badges */}
-          <div className="group relative ">
-            {/* Photo Container - Compact modern size */}
-            <div className="relative aspect-square max-w-[220px] sm:max-w-[240px] mx-auto w-full rounded-2xl overflow-hidden bg-zinc-200 dark:bg-zinc-800/50 shadow-md">
-              <Image
-                src={Photo}
-                alt="Htet Myat Aung - Frontend Developer"
-                fill
-                priority
-                sizes="(max-width: 640px) 220px, 240px"
-                className="object-cover object-center filter grayscale contrast-105 group-hover:scale-105 transition-all duration-700 ease-out"
-              />
-
-              {/* Gradient Vignette Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent pointer-events-none" />
-
-              {/* Top Floating Badge: Live Status */}
-              <div className="absolute top-2.5 right-2.5 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-zinc-900/85 dark:bg-zinc-900/90 text-zinc-100 border border-zinc-700/60 backdrop-blur-md shadow-md text-[11px] font-medium">
-                <span>{"Frontend Developer"}</span>
-              </div>
-
-              {/* Bottom Floating Badge: Location */}
-              <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1 px-2.5 py-1 rounded-full bg-zinc-900/85 dark:bg-zinc-900/90 text-zinc-200 border border-zinc-700/60 backdrop-blur-md shadow-md text-[11px] font-medium">
-                <span>{"Htet Myat Aung"}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Actions Strip */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            {/* Download CV Button */}
-            <motion.a
-              href="/cv.pdf"
-              download="htetmyataung_senior_frontend_developer_cv.pdf"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="group relative flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-950 font-medium text-sm transition-all overflow-hidden shadow-lg shadow-zinc-900/10 dark:shadow-none"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors">
-                <HugeiconsIcon
-                  icon={Download}
-                  className="w-4 h-4 transition-transform group-hover:-translate-y-0.5"
-                />
-                {t("about.download_cv")}
-              </span>
-            </motion.a>
-          </div>
-        </motion.div>
-
+      <div>
         {/* Right Column: Interactive Story & Bento Experience */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
