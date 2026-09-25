@@ -45,8 +45,8 @@ export function ProjectNavbar() {
         <div className="w-px h-4 bg-zinc-300 dark:bg-zinc-700 mx-2" />
 
         <Link href="/" className="text-lg font-bold tracking-tighter pr-2">
-          <span className="bg-clip-text text-transparent bg-linear-to-r from-violet-500 to-orange-500">
-            P.
+          <span className="text-violet-700 dark:text-violet-300">
+            HM.
           </span>
         </Link>
       </motion.nav>

@@ -1,5 +1,27 @@
 @import "tailwindcss";
 
+:root {
+  --accent: #7c3aed;
+  --accent-soft: #ede9fe;
+}
+
+.dark {
+  --accent: #a78bfa;
+  --accent-soft: #2e2450;
+}
+
+html {
+  scroll-padding-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @custom-variant dark (&:is(.dark, .dark *));
 
 @theme {

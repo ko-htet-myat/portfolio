@@ -52,9 +52,9 @@ export function Skills() {
   ];
 
   return (
-    <section className="py-24 px-6 overflow-hidden bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
+    <section className="py-16 md:py-24 px-6 overflow-hidden bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 text-center">
+        <div className="mb-10 md:mb-12 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export function Skills() {
           </motion.p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}

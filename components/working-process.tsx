@@ -43,8 +43,8 @@ export function WorkingProcess() {
   ];
 
   return (
-    <section id="process" className="py-24 px-6 max-w-5xl mx-auto">
-      <div className="mb-20 text-center">
+    <section id="process" className="py-16 md:py-24 px-6 max-w-5xl mx-auto">
+      <div className="mb-12 md:mb-16 text-center">
         <h2 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase">
           {t("process.title")}
         </h2>
@@ -53,12 +53,12 @@ export function WorkingProcess() {
       <div className="relative" ref={containerRef}>
         <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800 hidden md:block">
           <motion.div
-            className="absolute top-0 left-0 w-full bg-blue-500"
+            className="absolute top-0 left-0 w-full bg-violet-600 dark:bg-violet-400"
             style={{ height: progressHeight }}
           />
         </div>
 
-        <div className="flex flex-col gap-16 md:gap-24">
+        <div className="flex flex-col gap-12 md:gap-20">
           {steps.map((step, index) => {
             // Calculate when this step should become active based on scroll
             const stepProgress = index / (steps.length - 1);
@@ -113,20 +113,20 @@ function StepItem({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5, delay: index * 0.2 }}
-      className="relative flex flex-col md:flex-row items-center gap-8 md:gap-0"
+      className="relative flex flex-col md:flex-row items-center gap-6 md:gap-0"
     >
       <div className="md:w-1/2 flex md:justify-end md:pr-16 w-full">
         <div className="flex items-center gap-4">
           <span
             className={`text-xl font-bold transition-colors duration-300 ${
-              isActive ? "text-blue-500" : "text-zinc-900 dark:text-zinc-50"
+              isActive ? "text-violet-700 dark:text-violet-300" : "text-zinc-900 dark:text-zinc-50"
             }`}
           >
             {step.num}
           </span>
           <h3
             className={`text-3xl md:text-4xl font-bold tracking-tight transition-colors duration-300 ${
-              isActive ? "text-blue-500" : "text-zinc-900 dark:text-zinc-50"
+              isActive ? "text-violet-700 dark:text-violet-300" : "text-zinc-900 dark:text-zinc-50"
             }`}
           >
             {step.title}
@@ -137,7 +137,7 @@ function StepItem({
       <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center justify-center">
         <div
           className={`w-4 h-4 rounded-full z-10 border-4 border-zinc-50 dark:border-zinc-950 transition-colors duration-300 ${
-            isActive ? "bg-blue-500" : "bg-zinc-300"
+            isActive ? "bg-violet-600 dark:bg-violet-400" : "bg-zinc-300"
           }`}
         />
       </div>

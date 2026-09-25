@@ -1,129 +1,81 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useLanguage } from "./language-provider";
-import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Github, ExternalLink } from "@hugeicons/core-free-icons";
-import Photo from "@/assets/skeleton.png";
+import { useLanguage } from "./language-provider";
+import { ProjectVisual } from "./project-visual";
+import { projects } from "@/lib/projects";
 
 export function BentoGrid() {
   const { t } = useLanguage();
 
-  const projects = [
-    {
-      id: 1,
-      title: t("project.2.title"),
-      desc: t("project.2.desc"),
-      colSpan: "md:col-span-2",
-      rowSpan: "md:row-span-2",
-      image: Photo,
-      tags: ["React", "Tailwind", "Redux Toolkit"],
-    },
-    {
-      id: 2,
-      title: t("project.1.title"),
-      desc: t("project.1.desc"),
-      colSpan: "md:col-span-1",
-      rowSpan: "md:row-span-1",
-      image: Photo,
-      tags: ["React", "Tailwind", "Odoo"],
-    },
-    {
-      id: 3,
-      title: t("project.3.title"),
-      desc: t("project.3.desc"),
-      colSpan: "md:col-span-1",
-      rowSpan: "md:row-span-1",
-      image: Photo,
-      tags: ["Next.js", "Tailwind", "Node.js"],
-    },
-    {
-      id: 4,
-      title: t("project.4.title"),
-      desc: t("project.4.desc"),
-      colSpan: "md:col-span-2",
-      rowSpan: "md:row-span-1",
-      image: Photo,
-      tags: ["Pug Js", "Bootstrap", "WordPress"],
-    },
-  ];
-
   return (
-    <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
-      <div className="mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tighter mb-4">
-          {t("projects.title")}
-        </h2>
-        <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl">
-          {t("projects.desc")}
-        </p>
+    <section
+      id="projects"
+      className="scroll-mt-24 px-6 py-16 md:py-24 max-w-7xl mx-auto"
+    >
+      <div className="mb-10 md:mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-violet-700 dark:text-violet-300">
+            01 / Portfolio
+          </p>
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-zinc-950 dark:text-zinc-50">
+            {t("projects.title")}
+          </h2>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-75 gap-6">
-        {projects.map((project, i) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {projects.map((project, index) => (
           <motion.div
             key={project.id}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className={`group relative overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 ${project.colSpan} ${project.rowSpan}`}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.45, delay: index * 0.06 }}
           >
             <Link
-              // href={`/projects/${project.id}`}
-              href={"/"}
-              className="absolute inset-0 z-20"
-              aria-label={`View ${project.title}`}
-            />
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 dark:opacity-60"
-              referrerPolicy="no-referrer"
-            />
-
-            <div className="absolute inset-0 bg-linear-to-t from-zinc-900/90 via-zinc-900/40 to-transparent dark:from-black/90 dark:via-black/40" />
-
-            <div className="absolute inset-0 p-8 flex flex-col justify-end">
-              <div className="flex justify-between items-end">
-                <div>
-                  <div className="flex gap-2 mb-3 flex-wrap">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-medium text-white"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-zinc-300 line-clamp-2 max-w-md">
-                    {project.desc}
-                  </p>
+              href={`/projects/${project.id}`}
+              className="group block overflow-hidden rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-500 transition-colors hover:border-violet-400 dark:hover:border-violet-500"
+              aria-label={`View ${t(`project.${project.id}.title`)} project`}
+            >
+              <ProjectVisual
+                id={project.id}
+                className="h-55 sm:h-72 transition-transform duration-500 group-hover:scale-[1.025]"
+              />
+              <div className="relative z-10 p-6 sm:p-8 bg-white dark:bg-zinc-900">
+                <div className="mb-4 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.18em] text-violet-700 dark:text-violet-300">
+                  <span>{project.category}</span>
+                  <span>{String(index + 1).padStart(2, "0")} / 04</span>
                 </div>
-
-                <div className=" hidden sm:flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0 relative z-30">
-                  <a
-                    href="#"
-                    className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-colors"
-                  >
-                    <HugeiconsIcon icon={Github} />
-                  </a>
-                  <Link
-                    href="/"
-                    className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-colors"
-                  >
-                    <HugeiconsIcon icon={ExternalLink} />
-                  </Link>
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-white group-hover:text-violet-700 dark:group-hover:text-violet-300 transition-colors">
+                      {t(`project.${project.id}.title`)}
+                    </h3>
+                    <p className="mt-2 text-zinc-600 dark:text-zinc-400 leading-relaxed hidden lg:flex">
+                      {t(`project.${project.id}.desc`)}
+                    </p>
+                  </div>
+                  <HugeiconsIcon
+                    icon={ArrowUpRight}
+                    className="mt-1 h-6 w-6 shrink-0 text-violet-700 dark:text-violet-300 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                  />
+                </div>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-1 text-xs font-medium text-zinc-600 dark:text-zinc-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </div>
+            </Link>
           </motion.div>
         ))}
       </div>

@@ -34,19 +34,19 @@ export function WorkExperience() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-zinc-50 dark:bg-zinc-950 border-y border-zinc-200 dark:border-zinc-800">
+    <section className="py-16 md:py-24 px-6 bg-zinc-50 dark:bg-zinc-950 border-y border-zinc-200 dark:border-zinc-800">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-zinc-900 dark:text-zinc-100 text-3xl md:text-5xl font-bold tracking-tighter uppercase mb-16 text-center md:text-left"
+          className="text-zinc-900 dark:text-zinc-100 text-3xl md:text-5xl font-bold tracking-tighter uppercase mb-10 md:mb-14 text-center md:text-left"
         >
           {t("experience.title")}
         </motion.h2>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 sm:gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.id}
@@ -54,14 +54,14 @@ export function WorkExperience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex items-center justify-center md:justify-start gap-4"
+              className="flex items-center md:justify-start gap-4"
             >
-              <span className="text-blue-500 dark:text-blue-400 text-5xl md:text-7xl lg:text-[5rem] 2xl:text-8xl font-bold tracking-tighter leading-none">
+              <span className="text-violet-700 dark:text-violet-300 text-5xl md:text-7xl lg:text-[5rem] 2xl:text-8xl font-bold tracking-tighter leading-none">
                 {stat.num}
               </span>
               <div className="flex flex-col text-zinc-600 dark:text-zinc-400 font-bold leading-tight uppercase text-xs md:text-sm">
                 {stat.label1 && (
-                  <span className="text-blue-500 dark:text-blue-400">
+                  <span className="text-violet-700 dark:text-violet-300">
                     {stat.label1}
                   </span>
                 )}

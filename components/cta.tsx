@@ -9,7 +9,7 @@ export function CTA() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 px-6 overflow-hidden bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
+    <section className="py-16 md:py-24 px-6 overflow-hidden bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,13 +22,13 @@ export function CTA() {
             {t("cta.title1")}
           </h2>
 
-          <div className="flex flex-col xl:flex-row items-center justify-between mt-12 md:mt-8 xl:-mt-8 relative z-10">
-            <div className="flex flex-col sm:flex-row items-center gap-8 md:gap-12 md:pl-12 lg:pl-24 mb-12 xl:mb-0 w-full xl:w-auto justify-center xl:justify-start">
+          <div className="flex flex-col xl:flex-row items-center justify-between mt-8 xl:-mt-8 relative z-10">
+            <div className="flex flex-col sm:flex-row items-center gap-8 md:gap-12 md:pl-12 lg:pl-24 mb-8 xl:mb-0 w-full xl:w-auto justify-center xl:justify-start">
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-[#F4F85E] text-zinc-900 font-bold flex flex-col items-center justify-center shadow-lg shrink-0"
+                className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-violet-700 dark:bg-violet-400 text-white dark:text-zinc-950 font-bold flex flex-col items-center justify-center shadow-lg shadow-violet-500/15 shrink-0"
               >
                 <span className="text-lg md:text-xl tracking-tight">
                   {t("cta.button")}

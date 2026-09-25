@@ -52,9 +52,9 @@ export function Navbar() {
 
   const navLinks = [
     { name: t("nav.home"), href: "/#home" },
+    { name: t("nav.projects"), href: "/#projects" },
     { name: t("nav.about"), href: "/#about" },
     { name: t("nav.process"), href: "/#process" },
-    { name: t("nav.projects"), href: "/#projects" },
     { name: t("nav.contact"), href: "/#contact" },
   ];
 
@@ -74,7 +74,7 @@ export function Navbar() {
         <NavScrollBorder scrolled={scrolled} />
         {/* Logo */}
         <Link href="/#home" className="text-lg font-bold tracking-tighter mr-4">
-          <span className="bg-clip-text text-transparent bg-linear-to-r from-violet-500 to-orange-500">
+          <span className="text-violet-700 dark:text-violet-300">
             HM.
           </span>
         </Link>
@@ -161,9 +161,9 @@ export function Navbar() {
                         duration: 0.5,
                         ease: [0.22, 1, 0.36, 1],
                       }}
-                      className="text-4xl sm:text-5xl font-bold tracking-tighter text-zinc-900 dark:text-zinc-50 hover:text-orange-500 transition-colors flex items-center gap-6 group"
+                      className="text-4xl sm:text-5xl font-bold tracking-tighter text-zinc-900 dark:text-zinc-50 hover:text-violet-700 dark:hover:text-violet-300 transition-colors flex items-center gap-6 group"
                     >
-                      <span className="text-sm font-medium text-zinc-400 dark:text-zinc-600 group-hover:text-orange-500 transition-colors">
+                      <span className="text-sm font-medium text-zinc-400 dark:text-zinc-600 group-hover:text-violet-700 dark:group-hover:text-violet-300 transition-colors">
                         0{i + 1}
                       </span>
                       {link.name}
@@ -183,13 +183,17 @@ export function Navbar() {
                 Socials
               </p>
               <div className="flex flex-wrap gap-6">
-                {["Github", "Twitter", "LinkedIn", "Email"].map((social) => (
+                {[
+                  { name: "GitHub", href: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/ko-htet-myat" },
+                  { name: "LinkedIn", href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://linkedin.com/in/htet-myat-aung-hma" },
+                  { name: "Email", href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || "htetmyataung232002@gmail.com"}` },
+                ].map((social) => (
                   <a
-                    key={social}
-                    href="#"
+                    key={social.name}
+                    href={social.href}
                     className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
                   >
-                    {social}
+                    {social.name}
                   </a>
                 ))}
               </div>

@@ -16,35 +16,35 @@ export function Footer() {
   const { t } = useLanguage();
 
   const currentYear = new Date().getFullYear();
-  const email = process.env.NEXT_PUBLIC_EMAIL || "#";
+  const email = process.env.NEXT_PUBLIC_EMAIL || "htetmyataung232002@gmail.com";
 
   const links = [
-    { name: t("nav.home"), href: "#" },
-    { name: t("nav.about"), href: "#about" },
-    { name: t("nav.process"), href: "#process" },
-    { name: t("nav.projects"), href: "#projects" },
+    { name: t("nav.home"), href: "/#home" },
+    { name: t("nav.projects"), href: "/#projects" },
+    { name: t("nav.about"), href: "/#about" },
+    { name: t("nav.process"), href: "/#process" },
   ];
 
   const socials = [
     {
       name: "GitHub",
       icon: Github,
-      href: process.env.NEXT_PUBLIC_GITHUB_URL || "#",
+      href: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/ko-htet-myat",
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "#",
+      href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://linkedin.com/in/htet-myat-aung-hma",
     },
     {
       name: "Telegram",
       icon: Send,
-      href: process.env.NEXT_PUBLIC_TELEGRAM_URL || "#",
+      href: process.env.NEXT_PUBLIC_TELEGRAM_URL || "",
     },
     {
       name: "WhatsApp",
       icon: MessageCircle,
-      href: process.env.NEXT_PUBLIC_WHATSAPP_URL || "#",
+      href: process.env.NEXT_PUBLIC_WHATSAPP_URL || "",
     },
     {
       name: "Call",
@@ -61,14 +61,14 @@ export function Footer() {
   return (
     <footer
       id="contact"
-      className="bg-zinc-950 text-zinc-400 py-20 px-6 border-t border-zinc-800"
+      className="bg-zinc-950 text-zinc-400 py-16 md:py-20 px-6 border-t border-zinc-800"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 lg:gap-8 mb-12 md:mb-14">
           <div className="col-span-2">
             <h3 className="text-3xl md:text-4xl font-bold text-zinc-50 tracking-tighter mb-6 uppercase">
               Let&apos;s build something <br />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-violet-400 via-pink-400 to-orange-400">
+              <span className="text-violet-300">
                 extraordinary
               </span>
             </h3>
@@ -78,7 +78,7 @@ export function Footer() {
             </p>
             <a
               href={`mailto:${email}`}
-              className="inline-flex items-center gap-2 text-zinc-50 font-medium hover:text-orange-400 transition-colors group"
+              className="inline-flex items-center gap-2 text-zinc-50 font-medium hover:text-violet-300 transition-colors group"
             >
               {email}
               <HugeiconsIcon
@@ -111,7 +111,7 @@ export function Footer() {
               Socials
             </h4>
             <ul className="flex flex-col gap-4">
-              {socials.map((social) => (
+              {socials.filter((social) => social.href && !social.href.includes("yourusername") && !social.href.includes("yourphonenumber")).map((social) => (
                 <li key={social.name}>
                   <a
                     href={social.href}

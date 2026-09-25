@@ -87,11 +87,10 @@ export function NavScrollBorder({
       aria-hidden="true"
     >
       <defs>
-        {/* Brand palette gradient: violet-500 -> fuchsia-500 -> orange-500 */}
+        {/* A quiet, single-hue progress accent */}
         <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#8b5cf6" />
-          <stop offset="50%" stopColor="#d946ef" />
-          <stop offset="100%" stopColor="#f97316" />
+          <stop offset="0%" stopColor="#6d28d9" />
+          <stop offset="100%" stopColor="#a78bfa" />
         </linearGradient>
       </defs>
 

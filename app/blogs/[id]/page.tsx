@@ -63,7 +63,7 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
   };
 
   return (
-    <main className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 selection:bg-orange-500/30">
+    <main className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 selection:bg-violet-500/30">
       <ProjectNavbar />
 
       {/* Hero Section */}
@@ -113,7 +113,7 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
              className="flex items-center justify-center gap-4 text-zinc-700 dark:text-zinc-300 font-medium text-sm md:text-base"
           >
             <span>{blog.author}</span>
-            <div className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+            <div className="w-1.5 h-1.5 rounded-full bg-violet-500" />
             <span>{blog.date}</span>
           </motion.div>
         </div>
@@ -126,7 +126,7 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="prose prose-zinc dark:prose-invert md:prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-orange-500 hover:prose-a:text-orange-600 prose-img:rounded-3xl prose-img:shadow-xl"
+            className="prose prose-zinc dark:prose-invert md:prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-violet-700 dark:prose-a:text-violet-300 hover:prose-a:text-violet-800 prose-img:rounded-3xl prose-img:shadow-xl"
           >
             <ReactMarkdown>
               {blog.content}

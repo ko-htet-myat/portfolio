@@ -18,9 +18,10 @@ const translations = {
     "nav.projects": "Projects",
     "nav.contact": "Contact",
     "hero.badge": "Available for work",
-    "hero.greeting": "Frontend Developer",
+    "hero.greeting": "Htet Myat Aung",
+    "hero.role": "Frontend Developer",
     "hero.description":
-      "I build modern, scalable, and user-friendly applications. Passionate about clean code and great design.",
+      "I turn complex product ideas into clear, fast, and thoughtful web experiences. Explore the interfaces I have built for commerce, insurance, healthcare, and banking.",
     "about.title": "ABOUT ME",
     "about.desc":
       "I am a passionate developer with experience in building web applications. I love learning new technologies and solving complex problems. My focus is on creating intuitive and performant user experiences.",
@@ -84,12 +85,13 @@ const translations = {
     "process.3.desc":
       "After I completed all the processes, goals, and scope, I started to do the development process such as architecting scalable frontend structures and integrating robust backend services.",
     "projects.title": "Selected Work",
-    "projects.desc": "A collection of my recent projects.",
+    "projects.desc":
+      "Selected interfaces across commerce, insurance, healthcare, and banking.",
     "footer.made": "Made with ❤️",
     "footer.by": "by me",
     "project.1.title": "E-Commerce Platform",
     "project.1.desc":
-      "A e-commerce solution with React and Odoo backend integration.",
+      "An e-commerce platform built with React and an Odoo backend.",
     "project.2.title": "Core Insurance System",
     "project.2.desc": "A comprehensive system for insurance management.",
     "project.3.title": "Clinic CMS Website",
@@ -130,7 +132,8 @@ const translations = {
     "nav.projects": "ပရောဂျက်များ",
     "nav.contact": "ဆက်သွယ်ရန်",
     "hero.badge": "အလုပ်လက်ခံရန် အသင့်ရှိသည်",
-    "hero.greeting": "မင်္ဂလာပါ၊ ကျွန်တော်က Developer တစ်ယောက်ပါ",
+    "hero.greeting": "Htet Myat Aung",
+    "hero.role": "Frontend developer နှင့် interface designer",
     "hero.description":
       "ခေတ်မီ၊ အသုံးပြုရလွယ်ကူပြီး အတိုင်းအတာကျယ်ပြန့်သော အက်ပ်များကို တည်ဆောက်ပါသည်။ သန့်ရှင်းသော ကုဒ်နှင့် ကောင်းမွန်သော ဒီဇိုင်းကို ဝါသနာပါပါသည်။",
     "about.title": "ကျွန်ုပ်အကြောင်း",
@@ -201,14 +204,13 @@ const translations = {
     "footer.by": "ကျွန်တော်",
     "project.1.title": "E-Commerce ပလက်ဖောင်း",
     "project.1.desc":
-      "Next.js နှင့် Stripe ဖြင့် အပြည့်အဝ e-commerce ဖြေရှင်းချက်။",
-    "project.2.title": "AI ဒက်ရှ်ဘုတ်",
-    "project.2.desc":
-      "Machine learning မော်ဒယ်များဖြင့် အလုပ်လုပ်သော ခွဲခြမ်းစိတ်ဖြာမှု ဒက်ရှ်ဘုတ်။",
-    "project.3.title": "လူမှုရေး အက်ပ်",
-    "project.3.desc": "အချိန်နှင့်တစ်ပြေးညီ လူမှုကွန်ရက် အက်ပ်လီကေးရှင်း။",
-    "project.4.title": "Portfolio ပုံစံ",
-    "project.4.desc": "စိတ်ကြိုက်ပြင်ဆင်နိုင်သော developer portfolio ပုံစံ။",
+      "React နှင့် Odoo backend ဖြင့် တည်ဆောက်ထားသော e-commerce ပလက်ဖောင်း။",
+    "project.2.title": "အာမခံစနစ်",
+    "project.2.desc": "အာမခံလုပ်ငန်း စီမံခန့်ခွဲမှုစနစ်။",
+    "project.3.title": "ဆေးခန်း CMS ဝဘ်ဆိုက်",
+    "project.3.desc": "ဆေးခန်းအတွက် content management system။",
+    "project.4.title": "ဘဏ်ဝဘ်ဆိုက်",
+    "project.4.desc": "စိတ်ကြိုက်ပြင်ဆင်နိုင်သော ဘဏ်ဝဘ်ဆိုက်။",
     "cta.title1": "ပရောဂျက် ရှိပါသလား?",
     "cta.title2": "ဆွေးနွေးကြစို့",
     "cta.desc":

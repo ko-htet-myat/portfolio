@@ -41,10 +41,10 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative py-28 px-6 max-w-7xl mx-auto overflow-hidden"
+      className="relative py-16 md:py-24 px-6 max-w-7xl mx-auto overflow-hidden"
     >
       {/* Top Header Badge & Title */}
-      <div className=" mb-10 md:mb-5">
+      <div className="mb-8 md:mb-10">
         <motion.h2
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -139,13 +139,13 @@ export function About() {
                   {/* Terminal Header */}
                   <div className="flex items-center justify-between px-4 py-3 bg-zinc-900/90 border-b border-zinc-800">
                     <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                      <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                      <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                      <div className="w-3 h-3 rounded-full bg-violet-400/80" />
+                      <div className="w-3 h-3 rounded-full bg-zinc-500/80" />
+                      <div className="w-3 h-3 rounded-full bg-zinc-500/80" />
                       <span className="ml-2 text-xs text-zinc-400 font-sans font-medium flex items-center gap-1.5">
                         <HugeiconsIcon
                           icon={Terminal}
-                          className="w-3.5 h-3.5 text-blue-400"
+                          className="w-3.5 h-3.5 text-violet-300"
                         />
                         developer.config.ts
                       </span>
@@ -177,72 +177,72 @@ export function About() {
                       {/* Code Content */}
                       <div className="space-y-1 font-mono">
                         <div>
-                          <span className="text-purple-400">const</span>{" "}
-                          <span className="text-yellow-300">developer</span> ={" "}
+                          <span className="text-violet-300">const</span>{" "}
+                          <span className="text-zinc-100">developer</span> ={" "}
                           {"{"}
                         </div>
                         <div className="pl-4">
-                          <span className="text-blue-400">name</span>:{" "}
-                          <span className="text-emerald-300">
+                          <span className="text-violet-300">name</span>:{" "}
+                          <span className="text-zinc-300">
                             &quot;Htet Myat Aung&quot;
                           </span>
                           ,
                         </div>
                         <div className="pl-4">
-                          <span className="text-blue-400">title</span>:{" "}
-                          <span className="text-emerald-300">
+                          <span className="text-violet-300">title</span>:{" "}
+                          <span className="text-zinc-300">
                             &quot;Frontend Developer&quot;
                           </span>
                           ,
                         </div>
                         <div className="pl-4">
-                          <span className="text-blue-400">coreStack</span>: [
-                          <span className="text-emerald-300">
+                          <span className="text-violet-300">coreStack</span>: [
+                          <span className="text-zinc-300">
                             &quot;React 19&quot;
                           </span>
                           ,{" "}
-                          <span className="text-emerald-300">
+                          <span className="text-zinc-300">
                             &quot;Next.js 16&quot;
                           </span>
                           ,{" "}
-                          <span className="text-emerald-300">
+                          <span className="text-zinc-300">
                             &quot;TypeScript&quot;
                           </span>
                           ,{" "}
-                          <span className="text-emerald-300">
+                          <span className="text-zinc-300">
                             &quot;Tailwind&quot;
                           </span>
                           ],
                         </div>
                         <div className="pl-4">
-                          <span className="text-blue-400">methodologies</span>:
+                          <span className="text-violet-300">methodologies</span>:
                           [
-                          <span className="text-emerald-300">
+                          <span className="text-zinc-300">
                             &quot;Agentic AI Workflows&quot;
                           </span>
                           ,{" "}
-                          <span className="text-emerald-300">
+                          <span className="text-zinc-300">
                             &quot;Fluid Motion&quot;
                           </span>
                           ],
                         </div>
                         <div className="pl-4">
-                          <span className="text-blue-400">philosophy</span>:{" "}
-                          <span className="text-emerald-300">
+                          <span className="text-violet-300">philosophy</span>:{" "}
+                          <span className="text-zinc-300">
                             &quot;Pixel perfection meets sub-second
                             performance&quot;
                           </span>
                           ,
                         </div>
                         <div className="pl-4">
-                          <span className="text-blue-400">
+                          <span className="text-violet-300">
                             openForOpportunities
                           </span>
-                          : <span className="text-orange-400">true</span>,
+                          : <span className="text-violet-300">true</span>,
                         </div>
                         <div className="pl-4">
-                          <span className="text-blue-400">status</span>:{" "}
-                          <span className="text-emerald-300">
+                          <span className="text-violet-300">status</span>:{" "}
+                          <span className="text-zinc-300">
                             &quot;Ready to build the extraordinary 🚀&quot;
                           </span>
                         </div>
