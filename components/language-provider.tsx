@@ -20,8 +20,10 @@ const translations = {
     "hero.badge": "Available for work",
     "hero.greeting": "Htet Myat Aung",
     "hero.role": "Frontend Developer",
+    "hero.display_primary": "Frontend",
+    "hero.display_secondary": "Developer",
     "hero.description":
-      "I turn complex product ideas into clear, fast, and thoughtful web experiences. Explore the interfaces I have built for commerce, insurance, healthcare, and banking.",
+      "I design and build clear, fast interfaces for complex web products.",
     "about.title": "ABOUT ME",
     "about.desc":
       "I am a passionate developer with experience in building web applications. I love learning new technologies and solving complex problems. My focus is on creating intuitive and performant user experiences.",
@@ -134,6 +136,8 @@ const translations = {
     "hero.badge": "အလုပ်လက်ခံရန် အသင့်ရှိသည်",
     "hero.greeting": "Htet Myat Aung",
     "hero.role": "Frontend developer နှင့် interface designer",
+    "hero.display_primary": "Frontend",
+    "hero.display_secondary": "& UI Designer",
     "hero.description":
       "ခေတ်မီ၊ အသုံးပြုရလွယ်ကူပြီး အတိုင်းအတာကျယ်ပြန့်သော အက်ပ်များကို တည်ဆောက်ပါသည်။ သန့်ရှင်းသော ကုဒ်နှင့် ကောင်းမွန်သော ဒီဇိုင်းကို ဝါသနာပါပါသည်။",
     "about.title": "ကျွန်ုပ်အကြောင်း",

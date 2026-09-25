@@ -15,8 +15,8 @@ export default function Home() {
     <main className="min-h-screen overflow-x-hidden w-full">
       <Navbar />
       <Hero />
-      <BentoGrid />
       <About />
+      <BentoGrid />
       <WorkExperience />
       <Services />
       <WorkingProcess />

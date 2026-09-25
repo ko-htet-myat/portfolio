@@ -15,15 +15,22 @@ export function Navbar() {
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [onLightHero, setOnLightHero] = useState(true);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      setOnLightHero((document.getElementById("home")?.getBoundingClientRect().bottom ?? 0) > 90);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -65,8 +72,10 @@ export function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={`pointer-events-auto relative min-w-full md:min-w-0 z-50 flex items-center justify-between gap-4 px-4 py-2 md:px-6 md:py-3 rounded-full transition-all duration-500 ${
-          scrolled
-            ? "bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl shadow-lg shadow-black/5"
+          onLightHero
+            ? "bg-white/85 text-zinc-900 backdrop-blur-xl shadow-sm shadow-black/5"
+            : scrolled
+            ? "bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl shadow-lg shadow-black/10"
             : "bg-white/40 dark:bg-zinc-950/40 backdrop-blur-md"
         }`}
       >
@@ -74,7 +83,7 @@ export function Navbar() {
         <NavScrollBorder scrolled={scrolled} />
         {/* Logo */}
         <Link href="/#home" className="text-lg font-bold tracking-tighter mr-4">
-          <span className="text-violet-700 dark:text-violet-300">
+          <span className={onLightHero ? "text-violet-700" : "text-violet-700 dark:text-violet-300"}>
             HM.
           </span>
         </Link>
@@ -85,7 +94,7 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="px-4 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              className={`px-4 py-2 text-sm font-medium transition-colors rounded-full ${onLightHero ? "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100" : "text-zinc-600 dark:text-zinc-200 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800"}`}
             >
               {link.name}
             </Link>
@@ -111,7 +120,7 @@ export function Navbar() {
           {mounted && (
             <button
               onClick={switchTheme}
-              className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-600 dark:text-zinc-400"
+              className={`p-2 rounded-full transition-colors ${onLightHero ? "text-zinc-600 hover:bg-zinc-100" : "text-zinc-600 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"}`}
               aria-label="Toggle theme"
             >
               {resolvedTheme === "dark" ? (
@@ -125,7 +134,7 @@ export function Navbar() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-600 dark:text-zinc-400"
+            className={`md:hidden p-2 rounded-full transition-colors ${onLightHero ? "text-zinc-600 hover:bg-zinc-100" : "text-zinc-600 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"}`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (

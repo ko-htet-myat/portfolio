@@ -18,9 +18,6 @@ export function BentoGrid() {
     >
       <div className="mb-10 md:mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
         <div>
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-violet-700 dark:text-violet-300">
-            01 / Portfolio
-          </p>
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-zinc-950 dark:text-zinc-50">
             {t("projects.title")}
           </h2>
