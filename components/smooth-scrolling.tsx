@@ -3,33 +3,28 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import { usePathname } from "next/navigation";
+import { setLenisInstance } from "@/lib/lenis";
 
 export function SmoothScrolling({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   useEffect(() => {
-    const lenis = new Lenis();
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
+    const lenis = new Lenis({ autoRaf: true });
+    setLenisInstance(lenis);
 
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest("a");
       if (!anchor) return;
-      
+
       const href = anchor.getAttribute("href");
       if (!href) return;
-      
+
       const isHashLink = href.startsWith("#") || href.startsWith("/#");
-      
+
       if (isHashLink) {
         const hash = href.substring(href.indexOf("#"));
-        
+
         // If we are on the page where the element exists
         if (pathname === "/" || href.startsWith("#")) {
           const targetElement = document.querySelector(hash) as HTMLElement;
@@ -47,6 +42,7 @@ export function SmoothScrolling({ children }: { children: React.ReactNode }) {
     return () => {
       document.removeEventListener("click", handleAnchorClick);
       lenis.destroy();
+      setLenisInstance(null);
     };
   }, [pathname]);
 

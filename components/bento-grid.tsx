@@ -115,12 +115,12 @@ export function BentoGrid() {
                   >
                     <HugeiconsIcon icon={Github} />
                   </a>
-                  <a
+                  <Link
                     href="/"
                     className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-colors"
                   >
                     <HugeiconsIcon icon={ExternalLink} />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

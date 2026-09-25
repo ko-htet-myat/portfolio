@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { ArrowUp, Sparkles, Paperclip, Mic } from "@hugeicons/core-free-icons";
+import { ArrowUp, Paperclip, Mic } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 
 const SAMPLE_PROMPTS = [
@@ -31,6 +31,7 @@ export default function AiChatInput() {
   useEffect(() => {
     const currentPrompt = SAMPLE_PROMPTS[promptIndex];
     const typingSpeed = isDeleting ? 25 : 50;
+    let pauseTimeout: ReturnType<typeof setTimeout> | undefined;
 
     const timeout = setTimeout(() => {
       if (!isDeleting) {
@@ -38,7 +39,7 @@ export default function AiChatInput() {
           currentPrompt.substring(0, placeholderText.length + 1),
         );
         if (placeholderText === currentPrompt) {
-          setTimeout(() => setIsDeleting(true), 2200);
+          pauseTimeout = setTimeout(() => setIsDeleting(true), 2200);
         }
       } else {
         setPlaceholderText(
@@ -53,7 +54,10 @@ export default function AiChatInput() {
       }
     }, typingSpeed);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+      if (pauseTimeout) clearTimeout(pauseTimeout);
+    };
   }, [placeholderText, isDeleting, promptIndex]);
 
   return (

@@ -8,13 +8,16 @@ import { SmoothScrolling } from "@/components/smooth-scrolling";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_APP_URL || "https://portfolio-hma.vercel.app";
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Htet Myat Aung",
   jobTitle: "Senior Frontend Developer",
-  url: process.env.NEXT_PUBLIC_APP_URL || "https://portfolio-hma.vercel.app",
-  image: "../assets/og.png",
+  url: siteUrl,
+  image: `${siteUrl}/og.png`,
   sameAs: [
     process.env.NEXT_PUBLIC_GITHUB_URL ||
       "https://github.com/your-github-username",
@@ -35,9 +38,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_APP_URL || "https://portfolio-hma.vercel.app",
-  ),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Htet Myat Aung | Senior Frontend Developer",
     template: "%s | Htet Myat Aung",
@@ -56,8 +57,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Htet Myat Aung",
-      url:
-        process.env.NEXT_PUBLIC_APP_URL || "https://portfolio-hma.vercel.app",
+      url: siteUrl,
     },
   ],
   creator: "Htet Myat Aung",
@@ -67,14 +67,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: process.env.NEXT_PUBLIC_APP_URL || "https://portfolio-hma.vercel.app",
+    url: siteUrl,
     title: "Htet Myat Aung | Senior Frontend Developer",
     description:
       "Portfolio of Htet Myat Aung, specializing in building modern, scalable, and user-friendly web applications.",
     siteName: "Htet Myat Aung Portfolio",
     images: [
       {
-        url: "../assets/og.png",
+        url: "/og.png",
         width: 1200,
         height: 630,
         alt: "Htet Myat Aung Portfolio",
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     description:
       "Portfolio of Htet Myat Aung, specializing in building modern, scalable, and user-friendly web applications.",
     creator: "@htetmyataung",
-    images: ["../assets/og.png"],
+    images: ["/og.png"],
   },
   robots: {
     index: true,

@@ -1,7 +1,13 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { useRef, useState } from "react";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from "motion/react";
 import { useLanguage } from "./language-provider";
 
 export function WorkingProcess() {
@@ -73,23 +79,33 @@ export function WorkingProcess() {
   );
 }
 
+interface Step {
+  id: number;
+  num: string;
+  title: string;
+  desc: string;
+}
+
 function StepItem({
   step,
   index,
   scrollYProgress,
   stepProgress,
 }: {
-  step: any;
+  step: Step;
   index: number;
-  scrollYProgress: any;
+  scrollYProgress: MotionValue<number>;
   stepProgress: number;
 }) {
-  // Determine if the step is active based on scroll position
-  // We use a small threshold (0.1) so it activates slightly before the line reaches it
-  const isActive = useTransform(
-    scrollYProgress,
-    (val: number) => val >= Math.max(0, stepProgress - 0.1),
+  // Steps light up slightly before the progress line reaches them
+  const threshold = Math.max(0, stepProgress - 0.1);
+  const [isActive, setIsActive] = useState(
+    () => scrollYProgress.get() >= threshold,
   );
+
+  useMotionValueEvent(scrollYProgress, "change", (value) => {
+    setIsActive(value >= threshold);
+  });
 
   return (
     <motion.div
@@ -101,43 +117,28 @@ function StepItem({
     >
       <div className="md:w-1/2 flex md:justify-end md:pr-16 w-full">
         <div className="flex items-center gap-4">
-          <motion.span
-            className="text-xl font-bold"
-            style={{
-              color: isActive.get()
-                ? "var(--color-blue-500, #3b82f6)"
-                : "var(--color-zinc-900, #18181b)",
-            }}
-            animate={{
-              color: isActive.get() ? "#3b82f6" : "inherit",
-            }}
+          <span
+            className={`text-xl font-bold transition-colors duration-300 ${
+              isActive ? "text-blue-500" : "text-zinc-900 dark:text-zinc-50"
+            }`}
           >
             {step.num}
-          </motion.span>
-          <motion.h3
-            className="text-3xl md:text-4xl font-bold tracking-tight"
-            style={{
-              color: isActive.get()
-                ? "var(--color-blue-500, #3b82f6)"
-                : "var(--color-zinc-900, #18181b)",
-            }}
-            animate={{
-              color: isActive.get() ? "#3b82f6" : "inherit",
-            }}
+          </span>
+          <h3
+            className={`text-3xl md:text-4xl font-bold tracking-tight transition-colors duration-300 ${
+              isActive ? "text-blue-500" : "text-zinc-900 dark:text-zinc-50"
+            }`}
           >
             {step.title}
-          </motion.h3>
+          </h3>
         </div>
       </div>
 
       <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center justify-center">
-        <motion.div
-          className="w-4 h-4 rounded-full z-10 border-4 border-zinc-50 dark:border-zinc-950"
-          animate={{
-            backgroundColor: isActive.get() ? "#3b82f6" : "#e4e4e7",
-            borderColor: isActive.get() ? "#f8fafc" : "#f8fafc",
-          }}
-          transition={{ duration: 0.3 }}
+        <div
+          className={`w-4 h-4 rounded-full z-10 border-4 border-zinc-50 dark:border-zinc-950 transition-colors duration-300 ${
+            isActive ? "bg-blue-500" : "bg-zinc-300"
+          }`}
         />
       </div>
 
