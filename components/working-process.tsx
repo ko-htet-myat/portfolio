@@ -9,6 +9,7 @@ import {
   type MotionValue,
 } from "motion/react";
 import { useLanguage } from "./language-provider";
+import { SdlcWorkflow } from "./sdlc-workflow";
 
 export function WorkingProcess() {
   const { t } = useLanguage();
@@ -50,7 +51,7 @@ export function WorkingProcess() {
         </h2>
       </div>
 
-      <div className="relative" ref={containerRef}>
+      <div className="relative hidden" ref={containerRef}>
         <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800 hidden md:block">
           <motion.div
             className="absolute top-0 left-0 w-full bg-violet-600 dark:bg-violet-400"
@@ -75,6 +76,7 @@ export function WorkingProcess() {
           })}
         </div>
       </div>
+      <SdlcWorkflow />
     </section>
   );
 }
