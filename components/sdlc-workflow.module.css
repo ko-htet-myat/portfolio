@@ -1,3 +1,7 @@
+.scrollTrack {
+  height: 600svh;
+}
+
 .workflow {
   --ink: #18181b;
   --muted: #71717a;
@@ -8,76 +12,492 @@
   --theme-accent-soft: var(--accent-soft);
   --connector: color-mix(in srgb, var(--theme-accent) 42%, transparent);
   --selected-text: #fff;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100svh;
+  padding-top: 5rem;
   color: var(--ink);
 }
 
-.diagram { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1fr); align-items: center; gap: clamp(1.25rem, 4vw, 3rem); position: relative; }
-.cardColumn { display: grid; gap: 2rem; z-index: 2; }
-.leftColumn { transform: translateY(-.9rem); }
-.rightColumn { transform: translateY(.9rem); }
-.stageCard { position: relative; display: flex; flex-direction: column; align-items: stretch; min-height: 9rem; padding: .85rem 1rem .8rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--card); box-shadow: 0 10px 20px -13px #52525b66; color: var(--ink); text-align: left; cursor: pointer; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease; }
-.stageCard:hover { transform: translateY(-4px); box-shadow: 0 16px 26px -15px #52525b88; }
-.stageCard:focus-visible { outline: 3px solid var(--theme-accent); outline-offset: 3px; }
-.selected { border-color: var(--theme-accent); background: var(--theme-accent); color: var(--selected-text); box-shadow: 0 14px 25px -12px color-mix(in srgb, var(--theme-accent) 60%, transparent); }
-.cardTop { display: flex; justify-content: space-between; align-items: center; }
-.glyph { display: grid; place-items: center; width: 1.65rem; height: 1.65rem; border-radius: .45rem; background: var(--theme-accent-soft); color: var(--theme-accent); font-size: .92rem; font-weight: 800; line-height: 1; letter-spacing: -.09em; }
-.selected .glyph { background: var(--selected-text); }
-.number { font-size: .58rem; font-weight: 800; letter-spacing: .1em; opacity: .68; }
-.sparkline { display: flex; align-items: end; gap: .22rem; height: 1.5rem; width: 3.6rem; margin: .35rem 0 .5rem; }
-.sparkline span { flex: 1; border-radius: .18rem .18rem 0 0; background: var(--theme-accent); opacity: .35; }
-.selected .sparkline span { background: var(--selected-text); opacity: .8; }
-.cardTitle { font-size: .88rem; font-weight: 800; line-height: 1.1; letter-spacing: -.025em; }
-.cardCaption { margin-top: .2rem; font-size: .65rem; line-height: 1.25; opacity: .65; }
-.leftColumn .stageCard::after, .rightColumn .stageCard::after { content: ""; position: absolute; top: 50%; width: clamp(.65rem, 2vw, 1.5rem); border-top: 2px dotted var(--connector); }
-.leftColumn .stageCard::after { left: 100%; }
-.rightColumn .stageCard::after { right: 100%; }
+.sectionTitle {
+  margin: 0 0 2.5rem;
+  color: var(--ink);
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 1.1;
+  text-align: center;
+  text-transform: uppercase;
+}
+.diagram {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 3rem);
+  position: relative;
+}
+.cardColumn {
+  display: grid;
+  gap: 2rem;
+  z-index: 2;
+}
+.leftColumn {
+  transform: translateY(-0.9rem);
+}
+.rightColumn {
+  transform: translateY(0.9rem);
+}
+.stageCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 9rem;
+  padding: 1.2rem 1rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--card);
+  box-shadow: 0 10px 20px -13px #52525b66;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+.stageCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 26px -15px #52525b88;
+}
+.stageCard:focus-visible {
+  outline: 3px solid var(--theme-accent);
+  outline-offset: 3px;
+}
+.selected {
+  border-color: var(--theme-accent);
+  background: var(--theme-accent);
+  color: var(--selected-text);
+  box-shadow: 0 14px 25px -12px
+    color-mix(in srgb, var(--theme-accent) 60%, transparent);
+}
+.number {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.8rem;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  opacity: 0.68;
+}
+.cardContent {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 0;
+}
+.sparkline {
+  display: flex;
+  align-items: end;
+  gap: 0.22rem;
+  flex: none;
+  height: 2.3rem;
+  width: 3.2rem;
+}
+.sparkline span {
+  flex: 1;
+  border-radius: 0.18rem 0.18rem 0 0;
+  background: var(--theme-accent);
+  opacity: 0.35;
+}
+.selected .sparkline span {
+  background: var(--selected-text);
+  opacity: 0.8;
+}
+.cardCopy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.cardTitle {
+  font-weight: 600;
+  line-height: 1.1;
+}
+.cardCaption {
+  margin-top: 0.2rem;
+  font-size: 0.65rem;
+  line-height: 1.25;
+  opacity: 0.65;
+}
+.leftColumn .stageCard::after,
+.rightColumn .stageCard::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: clamp(0.65rem, 2vw, 1.5rem);
+  border-top: 2px dotted var(--connector);
+}
+.leftColumn .stageCard::after {
+  left: 100%;
+}
+.rightColumn .stageCard::after {
+  right: 100%;
+}
 
-.centerWrap { position: relative; z-index: 1; width: 100%; max-width: 19rem; margin-inline: auto; }
-.orbit { position: absolute; inset: -1.4rem; border: 2px dotted var(--connector); border-radius: 44% 54% 46% 55%; opacity: .7; pointer-events: none; }
-.centerPanel { overflow: hidden; position: relative; border: 1px solid var(--line); border-radius: 1.2rem; background: var(--card); box-shadow: 0 22px 34px -24px #52525bbb, 0 4px 10px -6px #52525b5c; }
-.panelChrome { display: flex; align-items: center; gap: .45rem; padding: .6rem .7rem; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .5rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.chromeDots { display: flex; gap: .23rem; }
-.chromeDots i { display: block; width: .34rem; height: .34rem; border-radius: 50%; background: var(--theme-accent); opacity: .35; }
-.chromeDots i:nth-child(2) { opacity: .6; }
-.chromeDots i:nth-child(3) { opacity: .9; }
-.panelStatus { display: inline-flex; align-items: center; gap: .25rem; margin-left: auto; color: var(--theme-accent); font-size: .5rem; letter-spacing: 0; white-space: nowrap; }
-.panelStatus span { width: .32rem; height: .32rem; border-radius: 50%; background: var(--theme-accent); }
-.panelBody { min-height: 17.2rem; padding: 1rem 1rem .9rem; text-align: center; }
-.panelKicker { color: var(--theme-accent); font-size: .61rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-.panelGlyph { display: grid; place-items: center; width: 3.25rem; height: 3.25rem; margin: .75rem auto .65rem; border-radius: .9rem; background: var(--theme-accent-soft); color: var(--theme-accent); font-size: 1.45rem; font-weight: 800; letter-spacing: -.13em; transform: rotate(-7deg); box-shadow: 0 10px 20px -13px color-mix(in srgb, var(--theme-accent) 40%, transparent); }
-.panelBody h4 { font-size: 1.4rem; font-weight: 800; letter-spacing: -.06em; line-height: 1.1; }
-.panelBody p { min-height: 3.2rem; margin: .5rem auto .75rem; max-width: 15rem; color: var(--muted); font-size: .68rem; line-height: 1.45; }
-.deliverable { display: flex; align-items: center; gap: .6rem; margin: 0 auto; padding: .55rem .65rem; max-width: 16rem; border: 1px solid var(--line); border-radius: .7rem; background: var(--wash); text-align: left; }
-.deliverableIcon { display: grid; flex: none; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: .5rem; background: var(--theme-accent-soft); color: var(--theme-accent); font-size: .8rem; font-weight: 900; }
-.deliverable small, .deliverable strong { display: block; }
-.deliverable small { margin-bottom: .1rem; color: var(--muted); font-size: .55rem; text-transform: uppercase; letter-spacing: .1em; }
-.deliverable strong { font-size: .7rem; line-height: 1.25; }
-.panelFooter { display: flex; align-items: center; gap: .45rem; padding: .65rem .75rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .52rem; font-weight: 700; white-space: nowrap; }
-.panelFooter strong { color: var(--ink); font-size: .6rem; }
-.progressTrack { flex: 1; height: .32rem; overflow: hidden; border-radius: 1rem; background: var(--theme-accent-soft); }
-.progressTrack span { display: block; height: 100%; border-radius: inherit; background: var(--theme-accent); transition: width .3s ease; }
-.hint { margin-top: 2.8rem; color: var(--muted); text-align: center; font-size: .65rem; letter-spacing: .02em; }
-
-:global(.dark) .workflow { --ink: #fafafa; --muted: #a1a1aa; --line: #3f3f46; --card: #27272a; --wash: #18181b; --selected-text: #18181b; }
-:global(.dark) .centerPanel { box-shadow: 0 22px 34px -24px #09090b; }
+.centerWrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 19rem;
+  margin-inline: auto;
+}
+.orbit {
+  position: absolute;
+  inset: -1.4rem;
+  border: 2px dotted var(--connector);
+  border-radius: 44% 54% 46% 55%;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.centerPanel {
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 1.2rem;
+  background: var(--card);
+  box-shadow:
+    0 22px 34px -24px #52525bbb,
+    0 4px 10px -6px #52525b5c;
+}
+.panelChrome {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.chromeDots {
+  display: flex;
+  gap: 0.23rem;
+}
+.chromeDots i {
+  display: block;
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 50%;
+  background: var(--theme-accent);
+  opacity: 0.35;
+}
+.chromeDots i:nth-child(2) {
+  opacity: 0.6;
+}
+.chromeDots i:nth-child(3) {
+  opacity: 0.9;
+}
+.panelStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: auto;
+  color: var(--theme-accent);
+  font-size: 0.5rem;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.panelStatus span {
+  width: 0.32rem;
+  height: 0.32rem;
+  border-radius: 50%;
+  background: var(--theme-accent);
+}
+.panelBody {
+  min-height: 17.2rem;
+  padding: 1rem 1rem 0.9rem;
+  text-align: center;
+}
+.panelKicker {
+  color: var(--theme-accent);
+  font-size: 0.61rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.panelGlyph {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: 0.75rem auto 0.65rem;
+  border-radius: 0.9rem;
+  background: var(--theme-accent-soft);
+  color: var(--theme-accent);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.13em;
+  transform: rotate(-7deg);
+  box-shadow: 0 10px 20px -13px
+    color-mix(in srgb, var(--theme-accent) 40%, transparent);
+}
+.panelBody h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.panelBody p {
+  min-height: 3.2rem;
+  margin: 0.5rem auto 0.75rem;
+  max-width: 15rem;
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+.deliverable {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 auto;
+  padding: 0.55rem 0.65rem;
+  max-width: 16rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: var(--wash);
+  text-align: left;
+}
+.deliverableIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 0.5rem;
+  background: var(--theme-accent-soft);
+  color: var(--theme-accent);
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+.deliverable small,
+.deliverable strong {
+  display: block;
+}
+.deliverable small {
+  margin-bottom: 0.1rem;
+  color: var(--muted);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.deliverable strong {
+  font-size: 0.7rem;
+  line-height: 1.25;
+}
+.panelFooter {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 0.75rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.52rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.panelFooter strong {
+  color: var(--ink);
+  font-size: 0.6rem;
+}
+.progressTrack {
+  flex: 1;
+  height: 0.32rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: var(--theme-accent-soft);
+}
+.progressTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--theme-accent);
+  transition: width 0.3s ease;
+}
+.stageRail {
+  display: none;
+}
+:global(.dark) .workflow {
+  --ink: #fafafa;
+  --muted: #a1a1aa;
+  --line: #3f3f46;
+  --card: #27272a;
+  --wash: #18181b;
+  --selected-text: #18181b;
+}
+:global(.dark) .centerPanel {
+  box-shadow: 0 22px 34px -24px #09090b;
+}
 
 @media (max-width: 760px) {
-  .diagram { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
-  .centerWrap { grid-column: 1 / -1; grid-row: 1; max-width: 18rem; width: 100%; margin: 0 auto 1rem; }
-  .orbit { inset: -.55rem; }
-  .leftColumn, .rightColumn { transform: none; gap: 1.25rem; }
-  .stageCard { min-height: 8.5rem; padding: .7rem; }
-  .leftColumn .stageCard::after, .rightColumn .stageCard::after { display: none; }
-  .panelBody { min-height: 17.2rem; }
-  .hint { margin-top: 1.5rem; }
+  .workflow {
+    padding-top: 4.5rem;
+  }
+  .sectionTitle {
+    margin-bottom: 1.25rem;
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+  .diagram {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9rem;
+  }
+  .centerWrap {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 18rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .orbit {
+    inset: -0.55rem;
+  }
+  .leftColumn,
+  .rightColumn {
+    display: contents;
+    transform: none;
+  }
+  .stageCard {
+    display: none;
+  }
+  .stageCard.selected {
+    display: flex;
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    max-width: 18rem;
+    min-height: 6.5rem;
+    margin-inline: auto;
+    padding: 0.65rem 0.8rem;
+  }
+  .leftColumn .stageCard::after,
+  .rightColumn .stageCard::after {
+    display: none;
+  }
+  .panelBody {
+    min-height: 15.5rem;
+  }
+  .stageRail {
+    display: flex;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-top: 1.25rem;
+  }
+  .stageRail button {
+    width: 2.35rem;
+    height: 2.35rem;
+    border: 1px solid var(--line);
+    border-radius: 0.65rem;
+    background: var(--card);
+    color: var(--muted);
+    font-size: 0.68rem;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .stageRail button.railActive {
+    border-color: var(--theme-accent);
+    background: var(--theme-accent);
+    color: var(--selected-text);
+  }
+  .stageRail button:focus-visible {
+    outline: 2px solid var(--theme-accent);
+    outline-offset: 2px;
+  }
 }
 
 @media (max-width: 380px) {
-  .cardCaption { font-size: .6rem; }
-  .cardTitle { font-size: .78rem; }
-  .number { font-size: .5rem; }
+  .cardCaption {
+    font-size: 0.6rem;
+  }
+  .number {
+    font-size: 0.5rem;
+  }
+  .stageRail button {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media (min-width: 761px) and (max-height: 800px) {
+  .workflow {
+    padding-top: 4.5rem;
+  }
+  .sectionTitle {
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+  }
+  .cardColumn {
+    gap: 1.25rem;
+  }
+  .leftColumn {
+    transform: translateY(-0.4rem);
+  }
+  .rightColumn {
+    transform: translateY(0.4rem);
+  }
+  .stageCard {
+    min-height: 7rem;
+    padding: 1.1rem 0.8rem 0.6rem;
+  }
+  .sparkline {
+    height: 1.9rem;
+  }
+  .centerWrap {
+    max-width: 18rem;
+  }
+  .panelBody {
+    min-height: 15.5rem;
+    padding: 0.85rem 0.9rem 0.75rem;
+  }
+  .panelGlyph {
+    width: 2.9rem;
+    height: 2.9rem;
+    margin: 0.55rem auto 0.45rem;
+    font-size: 1.3rem;
+  }
+  .panelBody h4 {
+    font-size: 1.3rem;
+  }
+  .panelBody p {
+    min-height: 2.8rem;
+    margin: 0.4rem auto 0.6rem;
+  }
+}
+
+@media (max-height: 640px) {
+  .workflow {
+    padding-top: 3.5rem;
+  }
+  .sectionTitle {
+    margin-bottom: 1rem;
+  }
+  .cardColumn {
+    gap: 0.75rem;
+  }
+  .stageCard {
+    min-height: 7rem;
+  }
+  .panelBody {
+    min-height: 14rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .stageCard, .progressTrack span { transition: none; }
+  .stageCard,
+  .progressTrack span {
+    transition: none;
+  }
 }

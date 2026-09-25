@@ -45,12 +45,6 @@ export function WorkingProcess() {
 
   return (
     <section id="process" className="py-16 md:py-24 px-6 max-w-5xl mx-auto">
-      <div className="mb-12 md:mb-16 text-center">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase">
-          {t("process.title")}
-        </h2>
-      </div>
-
       <div className="relative hidden" ref={containerRef}>
         <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800 hidden md:block">
           <motion.div
