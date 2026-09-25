@@ -91,7 +91,13 @@ export function Skills() {
               whileHover={{ scale: 1.05, y: -5 }}
               className="px-4 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 font-medium text-sm shadow-sm hover:shadow-md transition-shadow cursor-default flex items-center gap-2"
             >
-              <Image src={skill.icon} alt={skill.name} width={17} height={17} />
+              <Image
+                src={skill.icon}
+                alt={skill.name}
+                width={17}
+                height={17}
+                className=" grayscale"
+              />
               {skill.name}
             </motion.div>
           ))}
