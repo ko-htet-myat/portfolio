@@ -52,7 +52,7 @@ export function Hero() {
             <Image
               src={Portrait}
               alt="Portrait of Htet Myat Aung"
-              className="h-auto w-[min(88vw,390px)] object-contain object-bottom grayscale sm:w-[min(50vw,500px)]"
+              className="hero-portrait-fade h-auto w-[min(88vw,390px)] object-contain object-bottom grayscale sm:w-[min(50vw,500px)]"
               priority
             />
           </motion.div>
@@ -71,7 +71,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative z-30 flex flex-col items-center gap-6 border-t border-zinc-200 py-6 xl:flex-row xl:items-end xl:justify-between lg:-mt-2 lg:border-0 lg:pt-0 lg:pb-10">
+        <div className="relative z-30 flex flex-col items-center gap-6 py-6 xl:flex-row xl:items-end xl:justify-between lg:-mt-2 lg:border-0 lg:pt-0 lg:pb-10">
           <p className="max-w-sm text-sm text-center lg:text-start leading-relaxed text-zinc-600 lg:hidden">
             {t("hero.description")}
           </p>

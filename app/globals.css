@@ -19,6 +19,13 @@ html {
   -webkit-text-stroke: 1.5px #27272a;
 }
 
+@media (max-width: 1023px) {
+  .hero-portrait-fade {
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     scroll-behavior: auto !important;
